@@ -1,6 +1,6 @@
 'use client';
 // next uses server side rendering, so we need to use react context
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const ThemeContext = createContext();
 
@@ -16,8 +16,23 @@ export const ThemeContextProvider = ({ children }) => {
     return getFromLocalStorage();
   });
 
+  const toggle = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+
+  // whenever theme changes, update local storage
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   return (
-    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme, toggle }}>
+      {children}
+    </ThemeContext.Provider>
   );
 };
 
