@@ -21,7 +21,7 @@ a {
   text-decoration: none;
 }
 
-.light {
+.dark {
   --bg: #0f172a;
   --textColor: #ddd; 
   --softBg: #1f273a; 
