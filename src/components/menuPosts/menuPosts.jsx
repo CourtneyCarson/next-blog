@@ -7,6 +7,7 @@ export const MenuPosts = ({ withImage }) => {
   return (
     <div className={styles.items}>
       <Link href="/" className={styles.item}>
+        {/* if it's with image, show image */}
         {withImage && (
           <div className={styles.imageContainer}>
             <Image src="/p1.jpeg" alt="" fill className={styles.image} />
@@ -24,6 +25,7 @@ export const MenuPosts = ({ withImage }) => {
         </div>
       </Link>
       <Link href="/" className={styles.item}>
+        {/* if it's with image, show image */}
         {withImage && (
           <div className={styles.imageContainer}>
             <Image src="/p1.jpeg" alt="" fill className={styles.image} />
@@ -43,6 +45,7 @@ export const MenuPosts = ({ withImage }) => {
         </div>
       </Link>
       <Link href="/" className={styles.item}>
+        {/* if it's with image, show image */}
         {withImage && (
           <div className={styles.imageContainer}>
             <Image src="/p1.jpeg" alt="" fill className={styles.image} />
@@ -60,6 +63,7 @@ export const MenuPosts = ({ withImage }) => {
         </div>
       </Link>
       <Link href="/" className={styles.item}>
+        {/* if it's with image, show image */}
         {withImage && (
           <div className={styles.imageContainer}>
             <Image src="/p1.jpeg" alt="" fill className={styles.image} />
