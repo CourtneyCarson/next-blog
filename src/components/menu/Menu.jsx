@@ -69,6 +69,98 @@ export const Menu = () => {
         </Link>
       </div>
 
+      {/* start: categories */}
+      <h2 className={styles.subtitle}>Discover by topic</h2>
+      <h1 className={styles.title}>Categories</h1>
+
+      <div className={styles.CategoryList}>
+        <Link
+          href="/blog?cat=style"
+          className={`${styles.CategoryItem} ${styles.style}`}>
+          Style
+        </Link>
+        <Link
+          href="/blog?cat=style"
+          className={`${styles.category} ${styles.style}`}>
+          <Image
+            src="/style.png"
+            alt=""
+            width={32}
+            height={32}
+            className={styles.image}
+          />
+          style
+        </Link>
+        {/* travel */}
+        <Link
+          href="/blog?cat=style"
+          className={`${styles.category} ${styles.travel}`}>
+          <Image
+            src="/travel.png"
+            alt=""
+            width={32}
+            height={32}
+            className={styles.image}
+          />
+          travel
+        </Link>
+        {/* culture */}
+        <Link
+          href="/blog?cat=style"
+          className={`${styles.category} ${styles.culture}`}>
+          <Image
+            src="/culture.png"
+            alt=""
+            width={32}
+            height={32}
+            className={styles.image}
+          />
+          culture
+        </Link>
+        {/* coding */}
+        <Link
+          href="/blog?cat=style"
+          className={`${styles.category} ${styles.coding}`}>
+          <Image
+            src="/coding.png"
+            alt=""
+            width={32}
+            height={32}
+            className={styles.image}
+          />
+          coding
+        </Link>
+        {/* food */}
+        <Link
+          href="/blog?cat=style"
+          className={`${styles.category} ${styles.food}`}>
+          <Image
+            src="/food.png"
+            alt=""
+            width={32}
+            height={32}
+            className={styles.image}
+          />
+          food
+        </Link>
+        {/* fashion */}
+        <Link
+          href="/blog?cat=style"
+          className={`${styles.category} ${styles.fashion}`}>
+          <Image
+            src="/fashion.png"
+            alt=""
+            width={32}
+            height={32}
+            className={styles.image}
+          />
+          fashion
+        </Link>
+      </div>
+
+      <h2 className={styles.subtitle}>{'Chosen by the editors'}</h2>
+      <h1 className={styles.title}>Editors Pick</h1>
+
       {/* start: chosen by the editors  */}
       <h2 className={styles.subtitle}>{'Chosen by the editors'}</h2>
       <h1 className={styles.title}>Editors Pick</h1>
