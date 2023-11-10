@@ -8,16 +8,14 @@ export const AuthLinks = () => {
 
   return (
     <>
-      {status === 'notauthenticated' ? (
+      {status === 'unauthenticated' ? (
         <Link href="/login" className={styles.link}>
-          {' '}
-          Login{' '}
+          Login
         </Link>
       ) : (
         <>
           <Link href="/write" className={styles.link}>
-            {' '}
-            Write{' '}
+            Write
           </Link>
           <span className={styles.link}>Logout</span>
         </>
@@ -27,24 +25,17 @@ export const AuthLinks = () => {
         <div className={styles.line}></div>
         <div className={styles.line}></div>
       </div>
-      {/* if open show mobile menu  */}
+      {/* when open show mobile hamburger menu */}
       {open && (
-        <div className={styles.ResponsiveMenu}>
+        <div className={styles.responsiveMenu}>
           <Link href="/">Homepage</Link>
           <Link href="/">About</Link>
           <Link href="/">Contact</Link>
-          {/* if not authentiated show login/logout buttons?  */}
           {status === 'notauthenticated' ? (
-            <Link href="/login" className={styles.link}>
-              {' '}
-              Login{' '}
-            </Link>
+            <Link href="/login">Login</Link>
           ) : (
             <>
-              <Link href="/write" className={styles.link}>
-                {' '}
-                Write{' '}
-              </Link>
+              <Link href="/write">Write</Link>
               <span className={styles.link}>Logout</span>
             </>
           )}
