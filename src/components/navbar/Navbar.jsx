@@ -17,9 +17,15 @@ export const Navbar = () => {
       <div className={styles.logo}>Blog</div>
       <div className={styles.links}>
         <ThemeToggle />
-        <Link href="/">Home</Link>
-        <Link href="/">Contact</Link>
-        <Link href="/">About</Link>
+        <Link href="/" className={styles.link}>
+          Homepage
+        </Link>
+        <Link href="/" className={styles.link}>
+          Contact
+        </Link>
+        <Link href="/" className={styles.link}>
+          About
+        </Link>{' '}
         <AuthLinks />
       </div>
     </div>
