@@ -8,10 +8,10 @@ const SinglePage = () => {
     <div className={styles.container}>
       <div className={styles.infoContainer}>
         <div className={styles.textContainer}>
-          <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit</h1>
+          <h1 className={styles.title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit</h1>
           <div className={styles.user}>
             <div className={styles.userImageContainer}>
-              <Image src="/p1.jpeg" alt="" fill className={styles.image} />
+              <Image src="/p1.jpeg" alt="" fill className={styles.avatar} />
             </div>
             <div className={styles.userTextContainer}>
               <span className={styles.username}>John Doe</span>
