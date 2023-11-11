@@ -9,8 +9,9 @@ export const CategoryList = () => {
       <h1 className={styles.title}>Popular Categories</h1>
       {/* add both cat and style classes */}
       <div className={styles.categories}>
+
         <Link
-          href="/blog?cat=style"
+          href="/blog"
           className={`${styles.category} ${styles.style}`}>
           <Image
             src="/style.png"
@@ -23,7 +24,7 @@ export const CategoryList = () => {
         </Link>
         {/* travel */}
         <Link
-          href="/blog?cat=style"
+          href="/blog?cat=travel"
           className={`${styles.category} ${styles.travel}`}>
           <Image
             src="/travel.png"
@@ -36,7 +37,7 @@ export const CategoryList = () => {
         </Link>
         {/* culture */}
         <Link
-          href="/blog?cat=style"
+          href="/blog?cat=culture"
           className={`${styles.category} ${styles.culture}`}>
           <Image
             src="/culture.png"
@@ -49,7 +50,7 @@ export const CategoryList = () => {
         </Link>
         {/* coding */}
         <Link
-          href="/blog?cat=style"
+          href="/blog?cat=coding"
           className={`${styles.category} ${styles.coding}`}>
           <Image
             src="/coding.png"
@@ -62,7 +63,7 @@ export const CategoryList = () => {
         </Link>
         {/* food */}
         <Link
-          href="/blog?cat=style"
+          href="/blog?cat=food"
           className={`${styles.category} ${styles.food}`}>
           <Image
             src="/food.png"
@@ -75,7 +76,7 @@ export const CategoryList = () => {
         </Link>
         {/* fashion */}
         <Link
-          href="/blog?cat=style"
+          href="/blog?cat=fashion"
           className={`${styles.category} ${styles.fashion}`}>
           <Image
             src="/fashion.png"

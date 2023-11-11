@@ -4,7 +4,8 @@ import styles from './homepage.module.css';
 import { CardList } from '@/components/cardList/CardList';
 import { Menu } from '@/components/menu/Menu';
 
-export default function Home() {
+export default function Home({ searchParams }) {
+  const page = parseInt(searchParams.page) || 1;
   return (
     <div>
       <div className={styles.container}>
@@ -12,8 +13,8 @@ export default function Home() {
         <CategoryList />
 
         <div className={styles.content}>
-          <CardList />
-          <Menu/>
+          <CardList page={page} />
+          <Menu />
         </div>
       </div>
     </div>
