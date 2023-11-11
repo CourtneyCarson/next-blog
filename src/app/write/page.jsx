@@ -8,12 +8,13 @@ import 'react-quill/dist/quill.bubble.css';
 const WritePage = () => {
   // open container only when clicked
   const [open, setOpen] = useState(false);
+  // value for react quill editor
   const [value, setValue] = useState('');
   return (
     <div className={styles.container}>
-      <input type="text" placeholder="Title" />
+      <input type="text" placeholder="Title" className={styles.input} />
       <div className={styles.editor}>
-        <button className={styles.button} onClick={() => setOpen(!open) }>
+        <button className={styles.button} onClick={() => setOpen(!open)}>
           <Image src="/plus.png" alt="" width={16} height={16} />
         </button>
         {open && (
@@ -30,13 +31,14 @@ const WritePage = () => {
           </div>
         )}
         <ReactQuill
-        className={styles.textArea}
+          className={styles.textArea}
           theme="bubble"
           value={value}
           onChange={setValue}
           placeholder="Tell your story..."
         />
       </div>
+      <button className={styles.publish}>Publish</button>
     </div>
   );
 };
