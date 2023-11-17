@@ -25,6 +25,7 @@ export const CategoryList = async () => {
             href="/blog"
             className={`${styles.category} ${styles[item.slug]}`}
             key={item._id}>
+            {/* if there is an image */}
             {item.img && (
               <Image
                 src={item.img}

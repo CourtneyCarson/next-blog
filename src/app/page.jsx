@@ -5,6 +5,7 @@ import { CardList } from '@/components/cardList/CardList';
 import { Menu } from '@/components/menu/Menu';
 
 export default function Home({ searchParams }) {
+  //  search params for pagination since server side rendering
   const page = parseInt(searchParams.page) || 1;
   return (
     <div>
