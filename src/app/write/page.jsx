@@ -1,11 +1,11 @@
 'use client';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import styles from './writePage.module.css';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.bubble.css';
-import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
+import styles from './writePage.module.css';
 
 const WritePage = () => {
   const { status } = useSession();
@@ -16,6 +16,8 @@ const WritePage = () => {
   const [value, setValue] = useState('');
 
   // use effect to check if authenticated
+  // todo: need this for when routing from login, but if I click nav it throws error about use state 
+   DEBUG: 
   useEffect(() => {
     if (status === 'authenticated') {
       router.push('/');
