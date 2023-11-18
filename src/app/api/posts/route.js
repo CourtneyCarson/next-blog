@@ -6,12 +6,16 @@ export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
 
   const page = searchParams.get('page');
+  const cat = searchParams.get('cat');
 
   const POST_PER_PAGE = 2;
 
   const query = {
     take: POST_PER_PAGE,
     skip: POST_PER_PAGE * (page - 1),
+    where: {
+      ...(cat && {catSlug: cat})
+    }
   };
 
   try {
@@ -19,7 +23,7 @@ export const GET = async (req) => {
       // get all posts
       prisma.post.findMany(query),
       // get count of posts
-      prisma.post.count(),
+      prisma.post.count({where: query.where}),
     ]);
 
     return new NextResponse(
