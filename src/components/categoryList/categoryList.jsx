@@ -10,11 +10,13 @@ const getData = async () => {
   if (!res.ok) {
     throw new Error(res.statusText);
   }
+
   return res.json();
 };
 
 export const CategoryList = async () => {
   const data = await getData();
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Popular Categories</h1>
@@ -22,7 +24,7 @@ export const CategoryList = async () => {
       <div className={styles.categories}>
         {data.map((item) => (
           <Link
-          href="/blog?cat=style"
+            href={`/blog?cat=${item.slug}`}
             className={`${styles.category} ${styles[item.slug]}`}
             key={item._id}>
             {/* if there is an image */}
