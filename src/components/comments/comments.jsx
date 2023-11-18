@@ -1,9 +1,10 @@
 'use client';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './comments.module.css';
+import { useState } from 'react';
 import useSWR from 'swr';
-import { useSession } from 'next-auth/react';
+import styles from './comments.module.css';
 // fetch items on client side - can use use effect but can use eract query or swr
 
 const fetcher = async (url) => {
@@ -17,12 +18,23 @@ const fetcher = async (url) => {
 };
 
 const Comments = ({ postSlug }) => {
-  const status = useSession();
+  const { status } = useSession();
 
   const { data, isLoading } = useSWR(
     `http://localhost:3000/api/comments?postSlug=${postSlug}`,
     fetcher
   );
+
+  const [desc, setDesc] = useState('');
+
+  const handleSubmit = async () => {
+    await fetch('/api/comments', {
+      method: 'POST',
+      body: JSON.stringify({ desc, postSlug }),
+    });
+
+    // mutat();
+  };
 
   return (
     <div className={styles.container}>
@@ -30,8 +42,14 @@ const Comments = ({ postSlug }) => {
       {/* if user isn't logged in, send them to login page */}
       {status === 'authenticated' ? (
         <div className={styles.write}>
-          <textarea placeholder="write a comment..." className={styles.input} />
-          <button className={styles.button}>Post</button>
+          <textarea
+            placeholder="write a comment..."
+            className={styles.input}
+            onChange={(event) => setDesc(event.target.value)}
+          />
+          <button className={styles.button} onClick={handleSubmit}>
+            Post
+          </button>
         </div>
       ) : (
         <Link href="/login"> Login to write a comment </Link>
