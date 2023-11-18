@@ -1,10 +1,28 @@
-import React from 'react';
-import styles from './comments.module.css';
-import Link from 'next/link';
+'use client';
 import Image from 'next/image';
+import Link from 'next/link';
+import styles from './comments.module.css';
+import useSWR from 'swr';
+import { useSession } from 'next-auth/react';
+// fetch items on client side - can use use effect but can use eract query or swr
 
-const Comments = () => {
-  const status = 'authenticated';
+const fetcher = async (url) => {
+  const res = await fetch(url);
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.message || 'failed to fetch');
+  }
+  console.log(data);
+  return data;
+};
+
+const Comments = ({ postSlug }) => {
+  const status = useSession();
+
+  const { data, isLoading } = useSWR(
+    `http://localhost:3000/api/comments?postSlug=${postSlug}`,
+    fetcher
+  );
 
   return (
     <div className={styles.container}>
@@ -20,27 +38,28 @@ const Comments = () => {
       )}
       {/* start: comment section  */}
       <div className={styles.comments}>
-        <div className={styles.comment}>
-          <div className={styles.user}>
-            <Image
-              src="/p1.jpeg"
-              alt=""
-              width={50}
-              height={50}
-              className={styles.image}
-            />
-            <div className={styles.userInfo}>
-              <span className={styles.username}>John Doe</span>
-              <span className={styles.date}>03.15.2023</span>
-            </div>
-          </div>
-          <p className={styles.description}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
-            inventore assumenda repellendus voluptatum labore numquam pariatur
-            laudantium placeat quis provident enim a alias quod, nobis, optio
-            quas eius doloremque temporibus!
-          </p>
-        </div>
+        {isLoading
+          ? 'loading...'
+          : data?.map((item) => (
+              <div className={styles.comment} key={item._id}>
+                <div className={styles.user}>
+                  {item?.user?.image && (
+                    <Image
+                      src={item.user.image}
+                      alt=""
+                      width={50}
+                      height={50}
+                      className={styles.image}
+                    />
+                  )}
+                  <div className={styles.userInfo}>
+                    <span className={styles.username}>{item.user.name}</span>
+                    <span className={styles.date}>{item.createdAt}</span>
+                  </div>
+                </div>
+                <p className={styles.description}>{item.desc}</p>
+              </div>
+            ))}
       </div>
     </div>
   );
