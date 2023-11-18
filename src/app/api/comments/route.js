@@ -13,7 +13,7 @@ export const GET = async (req) => {
     const comments = await prisma.comment.findMany({
       where: {
         ...(postSlug && { postSlug }),
-      },
+      }, 
       include: { user: true },
     });
 

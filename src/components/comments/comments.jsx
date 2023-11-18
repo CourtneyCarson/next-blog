@@ -13,14 +13,14 @@ const fetcher = async (url) => {
   if (!res.ok) {
     throw new Error(data.message || 'failed to fetch');
   }
-  console.log(data);
+  // console.log(data);
   return data;
 };
 
 const Comments = ({ postSlug }) => {
   const { status } = useSession();
 
-  const { data, isLoading } = useSWR(
+  const { data, mutate, isLoading } = useSWR(
     `http://localhost:3000/api/comments?postSlug=${postSlug}`,
     fetcher
   );
@@ -33,7 +33,7 @@ const Comments = ({ postSlug }) => {
       body: JSON.stringify({ desc, postSlug }),
     });
 
-    // mutat();
+    mutate();
   };
 
   return (
