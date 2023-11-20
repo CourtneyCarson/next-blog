@@ -1,4 +1,3 @@
-// patch all categories
 import prisma from '@/utils/connect';
 import { NextResponse } from 'next/server';
 
@@ -7,8 +6,9 @@ export const GET = async (req, { params }) => {
   const { slug } = params;
 
   try {
-    const post = await prisma.post.findUnique({
+    const post = await prisma.post.update({
       where: { slug },
+      data: { views: { increment: 1 } }, // increment views when post is viewed
       include: { user: true },
     });
 
@@ -23,21 +23,6 @@ export const GET = async (req, { params }) => {
       status: 500,
     });
   }
-
-  // try {
-  //   const [posts, count] = await prisma.$transaction([
-  //     prisma.post.findMany({query}),
-  //     prisma.post.count(),
-  //     // prisma.post.count({ where: query.where }),
-  //   ]);
-  //   return new NextResponse(JSON.stringify({ posts, count }, { status: 200 }));
-  // } catch (err) {
-  //   console.log(err);
-  //   return new NextResponse(
-  //     JSON.stringify({ message: 'Something went wrong!' }, { status: 500 })
-  //   );
-  // }
-  // };
 };
 
-// since using server side rendering going to use serach params
+// since using server side rendering going to use search params to set up query
