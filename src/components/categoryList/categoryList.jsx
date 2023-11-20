@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './categorylist.module.css';
+import styles from './categoryList.module.css';
 
 const getData = async () => {
   const res = await fetch('http://localhost:3000/api/categories', {
