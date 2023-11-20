@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Comments from '@/components/comments/comments';
 
 const getData = async (slug) => {
-  const res = await fetch(`http://localhost:3000/api/posts/${slug}?popular=true`, {
+  const res = await fetch(`http://next-blog-git-main-courtneycarson.vercel.app/api/posts/${slug}?popular=true`, {
     cache: 'no-store',
   });
 
