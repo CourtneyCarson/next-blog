@@ -10,12 +10,16 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import ReactQuill from 'react-quill';
+
 import 'react-quill/dist/quill.bubble.css';
 import styles from './writePage.module.css';
+import dynamic from 'next/dynamic';
 
 const WritePage = () => {
   const { status } = useSession();
+  // dynamically import react quill
+  const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+
   const router = useRouter();
 
   const [media, setMedia] = useState('');
