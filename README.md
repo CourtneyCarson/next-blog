@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## User Functionality
 
-## Getting Started
+Users can log in with Google OAuth to create an account, allowing their google image to be their profile image on the platform 
 
-First, run the development server:
+Authenticated users can create their own blog posts
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Authenticated users can comment on others blog posts 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Non authenticated users can view blog posts and comments 
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+All users can view popular categories, and editors picks
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+All users can select dark or light mode for viewing
 
-## Learn More
+## Front End 
 
-To learn more about Next.js, take a look at the following resources:
+NextJs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+React
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+React Quill Wysiwyg
 
-## Deploy on Vercel
+## Back End 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+MongoDb
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Prisma 
+
+Firebase
+
+## Upcoming Features 
+
+Jwt Authentication
+
+Github Authentication 
+
+Update the Wysiwyg (Quill is going through some breaking changes) 
